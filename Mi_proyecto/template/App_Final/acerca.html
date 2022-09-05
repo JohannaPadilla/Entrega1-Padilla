@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+Acerca de..
+{% endblock %}
+
+
+{% block personalizable %}
+         <!-- Section-->
+     	<div class="container-fluid">
+            <div class="card-body">
+                <div class="card-body div_style">
+                <h1 style="text-align:center ;">Acerca de mi proyecto</h1>
+                </div>
+                <p class="p_style">
+                    Hola!! Me llamo Johanna y elegi este proyecto sobre un block donde subir informacion sobre algo que me gusta mucho que es el mundo del anime.
+                    <br>
+                    En el mismo se pueden ver informacion sobre de que tratan, quien fue su creador, capitulos y temporadas.
+                    <br>
+                    Creo que es una buena idea y estoy disfrutando hacerlo.
+                    <br>
+                    Saludos...
+                    <div class="container-fluid">
+                        <div class="row ">
+                          <div class="col-md">
+                            <img src="{% static 'assets/kakashi.gif' %}" alt="Funny image" style="height: 450px ; width: 400px; border-radius: 50px ; margin-left: 2cm; border-style: solid; border-color: aquamarine;">
+                          </div>
+                          <div class="col-md">
+                            <img src="{% static 'assets/sakura.gif' %}" alt="Funny image" style="height: 450px ; width: 400px; border-radius: 50px ; margin-left: 2cm; border-style: solid; border-color: aquamarine;">
+                          </div>
+                          <div class="col-md">
+                            <img src="{% static 'assets/gojo.gif' %}" alt="Funny image" style="height: 450px ; width: 400px ; border-radius: 50px ; margin-left: 2cm; border-style: solid; border-color: aquamarine;">
+                          </div>
+                        </div>
+                      </div>
+            </div>
+    	</div>
+{% endblock %}

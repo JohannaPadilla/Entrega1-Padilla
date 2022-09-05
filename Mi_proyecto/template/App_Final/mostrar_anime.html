@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Mostrar Anime
+{% endblock %}
+
+
+{% block personalizable %}
+         <!-- Mostrar todos los animes-->
+
+         {% for anime in animes %}
+         <div class="container-fluid">
+            <div class="card-body">
+               <div class="card-body div_style">                  
+                  <button style="background-color:black ; border-radius: 10px;">
+                     <a href="{% url 'eliminar_anime' anime.titulo %} "><i class="bi bi-trash icon_style"></i></a>
+                  </button>
+                  <button style="background-color:black ; border-radius: 10px;">
+                     <a href="{% url 'editar_anime' anime.titulo %} "><i class="bi bi-pencil-square icon_style"></i></a>
+                  </button>
+                  <h1 style="text-decoration:underline; text-align: center;">{{anime.titulo}}</h1> 
+                  <br>
+                  <div class="row">
+                     <div class="col-md" style="text-align:center ;">
+                        El creador es: {{anime.autor}}
+                        <br>
+                        Fecha de lanzamiento: {{anime.fecha_de_creacion}}
+                        <br> 
+                        Cantidad de episodios: {{anime.episodios}}
+                        <br> 
+                        Cantidad de temporadas: {{anime.temporadas}}
+                        <br> 
+                        Pais de origen: {{anime.origen}}
+                        <br> 
+                        Genero: {{anime.genero}}
+                        <br> 
+                        El personaje principal es: {{anime.personaje_principal}}
+                        <br>
+                     </div>
+                     <div class="col-md">
+                        Historia: {{anime.sinopsis}}
+                     </div>
+                  </div>
+                  <br>
+                  <br>
+                  <h2 style="text-align: center ;"><span style="background-color: darksalmon ; color: black ; border-radius: 10px ; font-family: 'Times New Roman', Times, serif ;"><strong>Puntuacion: {{anime.puntuacion}}</strong> </span></h2>
+                  <br>
+                  <br>
+               </div>
+            </div>
+         </div>
+            {% endfor %}
+
+{% endblock %}

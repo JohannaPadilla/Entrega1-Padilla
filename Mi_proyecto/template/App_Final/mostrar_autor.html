@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Mostrar Autores
+{% endblock %}
+
+
+{% block personalizable %}
+         <!-- Mostrar todos los animes-->
+
+         {% for autor in autores %}
+         <div class="container-fluid">
+            <div class="card-body">
+               <div class="card-body div_style">
+                  <h1 style="text-decoration:underline;">Autor</h1> 
+                  <br>
+                        Nombre: {{autor.nombre}}
+                        <br>
+                        Apellido: {{autor.apellido}}
+                        <br> 
+                        Nacionalidad: {{autor.nacionalidad}}
+                        <br> 
+                        <br>
+                     <button style="background-color:black ; border-radius: 10px;">
+                        <a href="{% url 'eliminar_autor' autor.nombre %} "><i class="bi bi-trash icon_style"></i></a>
+                     </button>
+               </div>
+            </div>
+         </div>
+            {% endfor %}
+
+{% endblock %}

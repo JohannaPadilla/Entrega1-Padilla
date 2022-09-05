@@ -1,0 +1,68 @@
+/* Css para enlace a Linkdin */
+.jp {
+    color: aquamarine;
+    font-style: italic;
+    font-family: sans-serif;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    text-decoration: none;
+    width: 150px ;
+    height: 40px;
+    text-align: center;
+    padding-top: 5px;
+  }
+.jp:hover {
+    color: rgb(0, 0, 0);
+    border-style: dashed;
+    background-color: aquamarine !important; 
+    border-color: #000000;
+  }
+
+.div_style {
+  background-color:aquamarine ; 
+  margin-left: 0.5cm; 
+  margin-right: 0.5cm; 
+  border-radius: 20px;
+}
+
+.p_style {
+  display:block; 
+  margin-left: 0.5cm; 
+  margin-right: 0.5cm; 
+  margin-top: 0.5cm; 
+  margin-bottom: 0.5cm; 
+  padding: 1cm; 
+  border-radius: 20px; 
+  border-style: double; 
+  border-color:aquamarine ; 
+  font-size: 0.5cm;
+}
+
+.h3_style {
+  margin-left: 0.5cm; 
+  margin-right: 0.5cm; 
+  border-radius: 20px;
+}
+
+.div_back{
+  background-color: black;
+}
+
+.a_link{
+  text-decoration: none;
+  color: aquamarine;
+}
+.a_link:hover {
+  color: rgb(0, 0, 0);
+  background-color: aquamarine !important; 
+}
+
+.icon_style{
+  color:aquamarine ;
+}
+
+.formulario{
+  background-color: aquamarine;
+  
+}

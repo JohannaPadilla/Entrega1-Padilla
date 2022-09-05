@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Formulario de Anime
+{% endblock %}
+
+
+{% block personalizable %}
+         <!-- Form-->
+         <form action="{% url 'buscar_anime_get' %}" method="GET"> 
+
+         {% csrf_token %}
+
+            {{ form.as_p }}
+      
+
+            <input type="submit" value="Buscar">
+
+         </form>
+
+{% endblock %}
