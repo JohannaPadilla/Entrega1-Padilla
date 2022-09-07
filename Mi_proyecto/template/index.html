@@ -28,10 +28,20 @@
         {% include 'base/navigation.html' %}
 
         <!-- Mensajes -->
-        {% for message in messages %}
+        <!-- {% for message in messages %}
          <p> {{ message }} </p>
-        {% endfor %}
+        {% endfor %} -->
 
+        {% if messages %}
+            {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" style="margin-top: 0.4cm ; text-align:center ; font-size: 0.5cm ; font-family: sans-serif ;" role="alert">
+            <strong>
+              {{ message }}  
+            </strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+            {% endfor %}
+        {% endif %}
         {% block personalizable %}
 
         <!-- Header-->

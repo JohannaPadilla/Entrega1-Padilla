@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block title %}
-Formulario de Anime
+{{ name_form }}
 {% endblock %}
 
 
@@ -14,7 +14,7 @@ Formulario de Anime
             {{ form.as_p }}
       
 
-            <input type="submit" value="Enviar">
+            <input type="submit" value="{{ name_form }}">
 
          </form>
 
