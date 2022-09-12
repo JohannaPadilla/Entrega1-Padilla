@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+Hasta la proxima
+{% endblock %}
+
+
+{% block personalizable %}
+         <!-- Section-->
+     	<div class="container-fluid">
+            <div class="card-body">
+                <div class="card-body div_style">
+                <h1 style="text-align:center ;">Hasta la proxima!!</h1>
+                </div>
+                <p class="p_style">
+                    Esperamos que hayas disfrutado mucho nuestro sitio.
+                    Esperamos que regreses
+                    <br>
+                    Saludos...
+                    <div class="container-fluid">
+                        <div class="row ">
+                          <div class="col-md">
+
+                          </div>
+                          <div class="col-md">
+                            <img src="{% static 'assets/kakashi_saludo.gif' %}" alt="Funny image" style="height: 450px ; width: 1000px; border-radius: 50px ; margin-left: 2cm; border-style: solid; border-color: aquamarine;">
+                          </div>
+                          <div class="col-md">
+
+                          </div>
+                        </div>
+                      </div>
+            </div>
+    	</div>
+{% endblock %}

@@ -3,6 +3,7 @@ from App_Final.models import *
 from App_Final.forms import *
 from django.contrib import messages
 import django
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -30,6 +31,7 @@ def acerca(request):
     return render(request, 'App_Final/acerca.html', contexto)
 
 # Vistar de formularios
+@login_required
 def animeformulario(request):
 
     if request.method == 'POST':
@@ -55,10 +57,13 @@ def animeformulario(request):
 
     contexto = {
         'form': Animeform(),
+        'name_submit': 'Ingreso Anime',
+        'name_form': 'Ingrese nuevo Anime'
     }
 
-    return render(request, 'App_Final/anime_formulario.html', contexto)
+    return render(request, 'App_Final/formulario_general.html', contexto)
 
+@login_required
 def autorformulario(request):
 
     if request.method == 'POST':
@@ -74,11 +79,14 @@ def autorformulario(request):
             return redirect('autor_form')
 
     contexto = {
-        'form': Autorform()
+        'form': Autorform(),
+        'name_submit': 'Ingreso Autor',
+        'name_form': 'Ingrese nuevo Autor'
     }
 
-    return render(request, 'App_Final/autor_formulario.html', contexto)
+    return render(request, 'App_Final/formulario_general.html', contexto)
 
+@login_required
 def generoformulario(request):
 
     if request.method == 'POST':
@@ -92,10 +100,12 @@ def generoformulario(request):
             return redirect('genero_form')
 
     contexto = {
-        'form': Generoform()
+        'form': Generoform(),
+        'name_submit': 'Ingreso Genero',
+        'name_form': 'Ingrese nuevo Genero'
     }
 
-    return render(request, 'App_Final/genero_formulario.html', contexto)
+    return render(request, 'App_Final/formulario_general.html', contexto)
 
 # Mostrando datos de DB
 def mostrar_anime(request):
@@ -149,6 +159,7 @@ def buscar_anime(request):
     return render(request, 'App_Final/buscar_anime.html', contexto)
 
 # Eliminar Datos
+@login_required
 def eliminar_anime(request, titulo):
 
     anime_eliminar = Anime.objects.get(titulo=titulo)
@@ -158,6 +169,7 @@ def eliminar_anime(request, titulo):
 
     return redirect("mostrar_anime")
 
+@login_required
 def eliminar_autor(request, nombre):
 
     autor_eliminar = Autor.objects.get(nombre=nombre)
@@ -167,6 +179,7 @@ def eliminar_autor(request, nombre):
 
     return redirect("mostrar_autor")
 
+@login_required
 def eliminar_genero(request, nombre):
 
     genero_eliminar = Genero.objects.get(nombre=nombre)
@@ -177,6 +190,7 @@ def eliminar_genero(request, nombre):
     return redirect("mostrar_genero")
 
 # Editar Datos
+@login_required
 def editar_anime(request, titulo):
     anime_editar = Anime.objects.get(titulo=titulo)
 
@@ -220,8 +234,10 @@ def editar_anime(request, titulo):
                 "sinopsis": anime_editar.sinopsis,
                 "puntuacion": anime_editar.puntuacion
             }
-        )
+        ),
+        'name_form': 'Ingrese nuevos datos',
+        'name_submit': 'Editar anime'
     }
 
 
-    return render(request, 'App_Final/anime_formulario.html', contexto)
+    return render(request, 'App_Final/formulario_general.html', contexto)

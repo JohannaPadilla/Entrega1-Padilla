@@ -1,7 +1,6 @@
 from django.contrib import admin
-
-
 from App_Final.models import *
+
 
 # Register your models here.
 

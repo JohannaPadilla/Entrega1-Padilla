@@ -1,11 +1,12 @@
 {% load static %}
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: black;">
     <div class="container px-4 px-lg-5">
-        <a class=" jp " href="https://www.linkedin.com/in/johanna-c-padilla/"> <strong> Johanna Padilla </strong></a>
+        <a class=" jp " href="https://www.linkedin.com/in/johanna-c-padilla/"> <strong> BULLSHIT ANIME </strong></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'App_Final_Inicio' %}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'acerca' %}">Acerca de..</a></li>
+                {% if request.user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ingresos</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -30,12 +31,26 @@
                         <li><a class="dropdown-item" href="{% url 'mostrar_genero' %}">Generos</a></li>
                     </ul>
                 </li>
+                {% endif %}
             </ul>
-            <form class="d-flex">
-                <button class="btn btn-outline-dark" type="submit">
-                    <a href="">Ingresar</a>
+            {% if user.is_authenticated %}
+            <form  class="d-flex">
+                <a href="{% url 'cargar_avatar' %}"><img height="40px" src="{{ user.avatar.imagen.url }}" alt=""></a>"
+                <a href="{% url 'editar_usuario' %}" style="text-decoration: none;"><h5 style="color:aquamarine ; padding: 0.1cm ; text-align: center ;"> Usuario: {{ user.username }} </h5></a>
+                <button style="background-color:black ;">
+                    <a class="jp" style="font-size:0.5cm ;padding: 0.1cm;"  href="{% url 'salir_UserAppFinal' %}">Salir</a>
                 </button>
             </form>
+            {% else %}
+            <form  class="d-flex">
+                <button style="background-color:black ;">
+                    <a class="jp" style="font-size:0.5cm ;padding: 0.1cm;"  href="{% url 'register_appfinal' %}">Registro</a>
+                </button>
+                <button style="background-color:black ;">
+                    <a class="jp" style="font-size:0.5cm ; padding: 0.1cm; " href="{% url 'login_appfinal' %}">Ingresar</a>
+                </button>
+            </form>
+            {% endif %}
         </div>
     </div>
 </nav>
