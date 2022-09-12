@@ -57,7 +57,8 @@ def animeformulario(request):
 
     contexto = {
         'form': Animeform(),
-        'name_submit': 'Ingreso Anime'
+        'name_submit': 'Ingreso Anime',
+        'name_form': 'Ingrese nuevo Anime'
     }
 
     return render(request, 'App_Final/formulario_general.html', contexto)
@@ -79,7 +80,8 @@ def autorformulario(request):
 
     contexto = {
         'form': Autorform(),
-        'name_submit': 'Ingreso Autor'
+        'name_submit': 'Ingreso Autor',
+        'name_form': 'Ingrese nuevo Autor'
     }
 
     return render(request, 'App_Final/formulario_general.html', contexto)
@@ -99,7 +101,8 @@ def generoformulario(request):
 
     contexto = {
         'form': Generoform(),
-        'name_submit': 'Ingreso Genero'
+        'name_submit': 'Ingreso Genero',
+        'name_form': 'Ingrese nuevo Genero'
     }
 
     return render(request, 'App_Final/formulario_general.html', contexto)
@@ -231,8 +234,10 @@ def editar_anime(request, titulo):
                 "sinopsis": anime_editar.sinopsis,
                 "puntuacion": anime_editar.puntuacion
             }
-        )
+        ),
+        'name_form': 'Ingrese nuevos datos',
+        'name_submit': 'Editar anime'
     }
 
 
-    return render(request, 'App_Final/anime_formulario.html', contexto)
+    return render(request, 'App_Final/formulario_general.html', contexto)
